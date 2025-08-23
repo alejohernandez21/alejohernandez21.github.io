@@ -1,110 +1,152 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Hoja de Vida</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 40px;
-      background-color: #f4f4f4;
-      color: #333;
-    }
-    .container {
-      max-width: 900px;
-      margin: auto;
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-    }
-    .profile-pic {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-    .header {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
-    h1, h2 {
-      color: #2c3e50;
-    }
-    ul {
-      list-style-type: square;
-      padding-left: 20px;
-    }
-    .section {
-      margin-top: 30px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>Hoja de Vida</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eef1f5;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .cv-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 900px;
+            margin: auto;
+            box-shadow: 0 0 12px rgba(0,0,0,0.1);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .profile-pic {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 3px solid #007BFF;
+        }
+
+        h1 {
+            margin: 10px 0 5px;
+        }
+
+        section {
+            margin-top: 35px;
+        }
+
+        ul {
+            list-style-type: square;
+            padding-left: 25px;
+            margin-top: 10px;
+        }
+
+        input {
+            padding: 8px;
+            margin-top: 10px;
+            margin-right: 5px;
+            width: 60%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 8px 12px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .input-group {
+            margin-top: 10px;
+        }
+
+        hr {
+            margin-top: 40px;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <!-- Fotografía + Presentación -->
-    <div class="header">
-      <img src="https://via.placeholder.com/150" alt="Foto de presentación" class="profile-pic">
-      <div>
-        <h1>Nombre Apellido</h1>
-        <p>Estudiante de 7° semestre de Ingeniería de Sistemas de la Universidad Santiago de Cali con conocimientos sólidos en desarrollo de back-end y front-end usando frameworks sobre PHP.</p>
-      </div>
-    </div>
+
+<div class="cv-container">
+    <header>
+        <img src="foto.jpg" alt="Fotografía de presentación" class="profile-pic">
+        <h1>Mi Hoja de Vida</h1>
+        <p><strong>Nombre:</strong> [Tu Nombre Aquí]</p>
+        <p><strong>Estudiante de 7° semestre de Tecnología en Sistemas</strong> en la Universidad Santiago de Cali con conocimientos sólidos en desarrollo de back-end y front-end usando frameworks sobre PHP.</p>
+        <p><strong>Código personal:</strong> 1116372908</p>
+    </header>
 
     <!-- Historial Académico -->
-    <div class="section">
-      <h2>Historial Académico</h2>
-      <ul id="academic-list"></ul>
-    </div>
+    <section>
+        <h2>📘 Historial Académico</h2>
+        <ul id="academic-list"></ul>
+        <div class="input-group">
+            <input type="text" id="new-academic" placeholder="Agregar nuevo estudio">
+            <button onclick="addToList('new-academic', 'academic-list')">Agregar</button>
+        </div>
+    </section>
 
     <!-- Historial Laboral -->
-    <div class="section">
-      <h2>Historial Laboral</h2>
-      <ul id="work-list"></ul>
-    </div>
+    <section>
+        <h2>💼 Historial Laboral</h2>
+        <ul id="job-list"></ul>
+        <div class="input-group">
+            <input type="text" id="new-job" placeholder="Agregar experiencia laboral">
+            <button onclick="addToList('new-job', 'job-list')">Agregar</button>
+        </div>
+    </section>
 
     <!-- Habilidades -->
-    <div class="section">
-      <h2>Habilidades</h2>
-      <ul id="skills-list"></ul>
-    </div>
-  </div>
+    <section>
+        <h2>🛠️ Habilidades y Conocimientos</h2>
+        <ul id="skills-list"></ul>
+        <div class="input-group">
+            <input type="text" id="new-skill" placeholder="Ejemplo: HTML5 - Avanzado / Inglés - Intermedio">
+            <button onclick="addToList('new-skill', 'skills-list')">Agregar</button>
+        </div>
+    </section>
+</div>
 
-  <script>
-    // Datos dinámicos
-    const academicHistory = [
-      "Bachiller Académico - Colegio Nacional",
-      "Curso de programación web - Platzi (2023)",
-      "Ingeniería de Sistemas - Universidad Santiago de Cali (en curso)"
-    ];
+<script>
+    function addToList(inputId, listId) {
+        const input = document.getElementById(inputId);
+        const list = document.getElementById(listId);
+        const value = input.value.trim();
 
-    const workHistory = [
-      "Prácticas en soporte técnico - Empresa XYZ (2023)",
-      "Desarrollador junior freelance - Proyecto E-commerce (2024)"
-    ];
+        if (value !== "") {
+            const li = document.createElement("li");
+            li.textContent = value;
 
-    const skills = [
-      "HTML5, CSS3, JavaScript",
-      "PHP con Laravel",
-      "Bases de datos MySQL y PostgreSQL",
-      "Inglés - Intermedio (B1)",
-      "Git y GitHub"
-    ];
+            // Agregar botón de eliminar
+            const deleteBtn = document.createElement("button");
+            deleteBtn.textContent = "❌";
+            deleteBtn.style.marginLeft = "10px";
+            deleteBtn.style.backgroundColor = "transparent";
+            deleteBtn.style.border = "none";
+            deleteBtn.style.cursor = "pointer";
+            deleteBtn.onclick = () => list.removeChild(li);
 
-    // Funciones para agregar listas al DOM
-    function populateList(id, items) {
-      const list = document.getElementById(id);
-      items.forEach(item => {
-        const li = document.createElement("li");
-        li.textContent = item;
-        list.appendChild(li);
-      });
+            li.appendChild(deleteBtn);
+            list.appendChild(li);
+            input.value = "";
+        }
     }
+</script>
 
-    // Cargar dinámicamente los datos
-    populateList("academic-list", academicHistory);
-    populateList("work-list", workHistory);
-    populateList("skills-list", skills);
-  </script>
 </body>
 </html>
+
