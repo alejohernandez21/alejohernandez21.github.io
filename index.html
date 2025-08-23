@@ -1,16 +1,110 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Página Personal</title>
-    <style>
-        body { font-family: Arial, sans-serif; text-align: center; background-color: #f0f0f0; padding-top: 50px; }
-        h1 { color: #333; }
-    </style>
+  <meta charset="UTF-8">
+  <title>Hoja de Vida</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    .profile-pic {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    h1, h2 {
+      color: #2c3e50;
+    }
+    ul {
+      list-style-type: square;
+      padding-left: 20px;
+    }
+    .section {
+      margin-top: 30px;
+    }
+  </style>
 </head>
 <body>
-    <h1>¡Hola! Bienvenido a mi página en GitHub Pages</h1>
-    <p>Esta es mi primera página HTML publicada desde GitHub.</p>
+  <div class="container">
+    <!-- Fotografía + Presentación -->
+    <div class="header">
+      <img src="https://via.placeholder.com/150" alt="Foto de presentación" class="profile-pic">
+      <div>
+        <h1>Nombre Apellido</h1>
+        <p>Estudiante de 7° semestre de Ingeniería de Sistemas de la Universidad Santiago de Cali con conocimientos sólidos en desarrollo de back-end y front-end usando frameworks sobre PHP.</p>
+      </div>
+    </div>
+
+    <!-- Historial Académico -->
+    <div class="section">
+      <h2>Historial Académico</h2>
+      <ul id="academic-list"></ul>
+    </div>
+
+    <!-- Historial Laboral -->
+    <div class="section">
+      <h2>Historial Laboral</h2>
+      <ul id="work-list"></ul>
+    </div>
+
+    <!-- Habilidades -->
+    <div class="section">
+      <h2>Habilidades</h2>
+      <ul id="skills-list"></ul>
+    </div>
+  </div>
+
+  <script>
+    // Datos dinámicos
+    const academicHistory = [
+      "Bachiller Académico - Colegio Nacional",
+      "Curso de programación web - Platzi (2023)",
+      "Ingeniería de Sistemas - Universidad Santiago de Cali (en curso)"
+    ];
+
+    const workHistory = [
+      "Prácticas en soporte técnico - Empresa XYZ (2023)",
+      "Desarrollador junior freelance - Proyecto E-commerce (2024)"
+    ];
+
+    const skills = [
+      "HTML5, CSS3, JavaScript",
+      "PHP con Laravel",
+      "Bases de datos MySQL y PostgreSQL",
+      "Inglés - Intermedio (B1)",
+      "Git y GitHub"
+    ];
+
+    // Funciones para agregar listas al DOM
+    function populateList(id, items) {
+      const list = document.getElementById(id);
+      items.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = item;
+        list.appendChild(li);
+      });
+    }
+
+    // Cargar dinámicamente los datos
+    populateList("academic-list", academicHistory);
+    populateList("work-list", workHistory);
+    populateList("skills-list", skills);
+  </script>
 </body>
 </html>
