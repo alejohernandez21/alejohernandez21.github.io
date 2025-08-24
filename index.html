@@ -84,16 +84,19 @@
 <div class="cv-container">
     <header>
         <img src="foto.jpg" alt="Fotografía de presentación" class="profile-pic">
-        <h1>Mi Hoja de Vida</h1>
-        <p><strong>Nombre:</strong> [Tu Nombre Aquí]</p>
-        <p><strong>Estudiante de 7° semestre de Tecnología en Sistemas</strong> en la Universidad Santiago de Cali con conocimientos sólidos en desarrollo de back-end y front-end usando frameworks sobre PHP.</p>
+        <h1>Hoja de Vida</h1>
+        <p><strong>Nombre:</strong> Julio Alejandro Hernández</p>
+        <p><strong>Estudiante de 6° semestre de Tecnología en Sistemas</strong> en la Universidad Santiago de Cali, con conocimientos en desarrollo web (front-end y back-end) y bases de datos. Especial interés en desarrollo web con **PHP y MySQL**.</p>
         <p><strong>Código personal:</strong> 1116372908</p>
     </header>
 
     <!-- Historial Académico -->
     <section>
         <h2>📘 Historial Académico</h2>
-        <ul id="academic-list"></ul>
+        <ul id="academic-list">
+            <li>Bachiller Académico - Colegio Distrital Nueva Esperanza (2019)</li>
+            <li>Tecnología en Sistemas - Universidad Santiago de Cali (En curso, 6° semestre)</li>
+        </ul>
         <div class="input-group">
             <input type="text" id="new-academic" placeholder="Agregar nuevo estudio">
             <button onclick="addToList('new-academic', 'academic-list')">Agregar</button>
@@ -103,7 +106,14 @@
     <!-- Historial Laboral -->
     <section>
         <h2>💼 Historial Laboral</h2>
-        <ul id="job-list"></ul>
+        <ul id="job-list">
+            <li>Prácticas en Soporte Técnico - Empresa TechSolutions (3 meses)  
+                <br><small>Instalación de software, mantenimiento preventivo y soporte básico a usuarios.</small>
+            </li>
+            <li>Asistente en Desarrollo Web Freelance  
+                <br><small>Colaboración en proyectos simples usando HTML, CSS y PHP.</small>
+            </li>
+        </ul>
         <div class="input-group">
             <input type="text" id="new-job" placeholder="Agregar experiencia laboral">
             <button onclick="addToList('new-job', 'job-list')">Agregar</button>
@@ -113,7 +123,13 @@
     <!-- Habilidades -->
     <section>
         <h2>🛠️ Habilidades y Conocimientos</h2>
-        <ul id="skills-list"></ul>
+        <ul id="skills-list">
+            <li>HTML5, CSS3 y JavaScript - Intermedio</li>
+            <li>PHP y MySQL - Básico</li>
+            <li>Git y GitHub - Básico</li>
+            <li>Soporte Técnico - Intermedio</li>
+            <li>Inglés - Nivel Intermedio</li>
+        </ul>
         <div class="input-group">
             <input type="text" id="new-skill" placeholder="Ejemplo: HTML5 - Avanzado / Inglés - Intermedio">
             <button onclick="addToList('new-skill', 'skills-list')">Agregar</button>
@@ -149,4 +165,3 @@
 
 </body>
 </html>
-
